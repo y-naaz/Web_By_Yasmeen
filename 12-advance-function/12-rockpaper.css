@@ -1,0 +1,30 @@
+body {
+    background-color: rgb(25, 25, 25);
+    color: white;
+    font-family: Arial;
+  }
+  .move-button {
+    background-color: transparent;
+    border-radius: 50%;
+    padding: 45px;
+    margin: 10px;
+    border: 4px solid white;
+  }
+
+  .css-result {
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 20px;
+  }
+  .css-decide,
+  .css-score {
+    margin-left: 20px;
+    font-size: 20px;
+  }
+  .reset-button  , .auto-play-button{
+    border: none;
+    margin-left: 5px;
+    padding: 12px 15px;
+    font-size: 18px;
+    margin-top: 20px;
+  }

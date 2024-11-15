@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice To Do</title>
+</head>
+<body>
+    <p>Todo List</p>
+    <input type="text" class="js-name-input"> 
+    <button class="js-add-btn" onclick="
+    addList();
+    ">ADD</button>
+    <div class="todo-list-container"></div>
+    <script>
+        const todoist=[];
+        function addList(){
+            const inputElement = document.querySelector('.js-name-input');
+            const name = inputElement.value;
+            todoist.push(name);
+            console.log(todoist);
+            //after adding a todo we wants to reset our text box
+            inputElement.value=""; 
+            rendertodoList();
+        }
+        function rendertodoList(){
+            let todoHTML = "";
+            for(let i = 0 ; i < todoist.length ;i++){
+            const todo = todoist[i];
+            const html = `<p>${todo}</p>`;
+            todoHTML+=html;
+            document.querySelector('.todo-list-container').innerHTML = todoHTML;
+        }
+        }
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learnign cart quantity</title>
+</head>
+
+<body>
+    <button id="show" onclick="
+    showCart();
+    ">Show Cart</button>
+
+    <button id="add" 
+    onclick="
+    cartUpdate(1);
+    ">Add to Cart</button>
+
+    <button id="2" onclick="
+    cartUpdate(2);
+    ">+2</button>
+
+    <button id="3"
+    onclick="
+    cartUpdate(3);
+    ">+3</button>
+    <button id="reset"
+    onclick="
+    reset();
+    "
+    >Reset cart</button>
+</body>
+<script>
+    let quantity = 0
+    function cartUpdate(val) {
+        quantity = quantity + val;
+        console.log('Cart qunatity is: ' + quantity);
+    }
+    function showCart() {
+        console.log("Cart quantity is: " + quantity)
+    }
+    function reset(){
+        if(quantity==0){
+            console.log("Cart is already empty.")
+            return;
+        }
+        quantity=0;
+        alert("Cart is empty now");
+    }
+</script>
+
+</html>
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart quantity</title>
+</head>
+
+<body>
+    <button id="show" onclick="
+    console.log('Cart quantity is '+quantity);
+    ">Show Cart</button>
+
+    <button id="add" onclick="
+    quantity++;
+    console.log(`Cart quantity is ${quantity}`);
+    ">Add to Cart</button>
+
+    <button id="2" onclick="
+    
+    quantity = quantity=2;
+    console.log(`Cart quantity is ${quantity}`);
+    ">+2</button>
+
+    <button id="3" onclick="
+    quantity = quantity +3;
+    console.log(`Cart quantity is ${quantity}`);
+    ">+3</button>
+    <button id="reset" onclick="
+    qunatity =0;
+    console.log(`Cart quantity was reset`);
+    ">Reset cart</button>
+</body>
+<script>
+    let quantity=0;
+    //the above is also working and is another way of doing the same
+</script>
+</html>

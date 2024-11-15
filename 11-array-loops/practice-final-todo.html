@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice Final To-Do</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .todo-input-html,
+      .todo-grid {
+        display: grid;
+        /*number of column in grid three along with size of each column*/
+        grid-template-columns: 200px 150px 100px;
+        gap: 10px;
+      }
+      .todo-grid {
+        margin-top: 10px;
+        align-items: center;
+      }
+      .css-name-input,
+      .css-duedate-input {
+        font-size: 13px;
+        padding: 6px 16px;
+      }
+      .css-add-btn {
+        font-size: 15px;
+        cursor: pointer;
+        background-color: rgb(58, 73, 128);
+        color: rgb(255, 255, 255);
+        border: none;
+        font-weight: bold;
+      }
+      .css-dlt-btn {
+        color: white;
+        background-color: rgb(201, 41, 41);
+        border: none;
+        padding: 6px 16px;
+        border-radius: 4px;
+        padding: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Time Stamp 8:45:00 -->
+    <p>Todo List</p>
+    <div class="todo-input-html">
+      <input
+        type="text"
+        class="js-name-input css-name-input"
+        placeholder="Enter your task"
+      />
+      <input type="date" class="js-todo-duedate css-duedate-input" />
+      <button class="js-add-btn css-add-btn" onclick="addList()">ADD</button>
+    </div>
+
+    <div class="todo-list-container todo-grid"></div>
+
+    <script>
+      const todoist = JSON.parse(localStorage.getItem("todoist")) || [];
+      rendertodoList();
+      const addButton = document.querySelector('js-add-btn');
+      addButton.addEventListener('click',()=>{
+        addList();
+      });
+      function addList() {
+        const inputElement = document.querySelector(".js-name-input");
+        const dateInputElement = document.querySelector(".js-todo-duedate");
+        const name = inputElement.value.trim();
+        const dueDate = dateInputElement.value;
+
+        // Ensure task name is not empty before adding to the list
+        if (name !== "") {
+          todoist.push({ name, dueDate });
+          console.log(todoist);
+
+          // Clear the input fields after adding the task
+          inputElement.value = "";
+          dateInputElement.value = "";
+          rendertodoList();
+        }
+        localStorage.setItem("todoist", JSON.stringify(todoist));
+      }
+
+      function rendertodoList() {
+        let todoHTML = "";
+        todoist.forEach(function (todoObject,i) {
+          const html = `
+              <div>${todoObject.name}</div>    <div>${todoObject.dueDate}</div>
+              <button class="css-dlt-btn" onclick="deleteTodo(${i})">Delete</button>
+          `;
+          todoHTML += html;
+        });
+        document.querySelector(".todo-list-container").innerHTML = todoHTML;
+      }
+
+      function deleteTodo(index) {
+        todoist.splice(index, 1);
+        rendertodoList();
+      }
+    </script>
+  </body>
+</html>

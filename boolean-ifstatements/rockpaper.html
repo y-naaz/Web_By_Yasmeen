@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock paper</title>
+</head>
+
+<body>
+
+    <button onclick="
+    gameplay('rock');
+    ">rock</button>
+    <button onclick="
+    gameplay('paper');
+    ">paper</button>
+    <button onclick=" 
+    gameplay('scissor');
+    ">scissor</button>
+
+</body>
+<script>
+    let computer_choice = '';
+    function computerMove() {
+        let computer_choice = '';
+        let random = Math.random();
+        if (random >= 0 && random < 1 / 3) computer_choice = "rock";
+        else if (random >= 1 / 3 && random < 2 / 3) computer_choice = 'paper';
+        else computer_choice = 'scissor';
+        return computer_choice;
+    }
+    function gameplay(user_choice) {
+        //function bana diya function call v to hona chahiye.
+        let computer_choice = computerMove();
+        if (computer_choice == user_choice) alert(`You choose ${user_choice}. computer choose ${computer_choice} : TIE`);
+        else if (computer_choice == 'rock' && user_choice == 'scissor' || computer_choice == 'paper' && user_choice == 'rock' || computer_choice == 'scissor' && user_choice == 'paper') alert(`You choose ${user_choice}. computer choose ${computer_choice} : LOSE`);
+        else alert(`You choose ${user_choice}. computer choose ${computer_choice} : WIN`);
+    }
+    function greet(name){
+        if(name===undefined) console.log(`hi there!`);
+        //or we can use if(!name) becuase undefined is a falsy value
+        else console.log(`hello ${name}`);
+        
+    }
+    greet('Simon');
+    greet("Alice");
+    greet();
+</script>
+
+</html>

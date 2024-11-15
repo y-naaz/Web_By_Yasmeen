@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dup Rock Paper Scissors</title>
+    <link rel="stylesheet" href="rockPpaerAutoPlay.css">
+  </head>
+  <body>
+    <!-- I am not able to identify the issue of image reloading ... -->
+    <p class="title">Rock paper Scissor</p>
+    <button onclick="gameplay('rock');" class="rock"><img src="rock-emoji.png" alt="rock emoji" ></button>
+    <button onclick="gameplay('paper');" class="paper"><img src="paper-emoji.png" alt="paper-emoji" ></button>
+    <button onclick="gameplay('scissors');" class="scissor"><img src="scissors-emoji.png" alt="scissors-emoji" ></button>
+    <p class="js-result"></p>
+    <p class="js-move"></p>
+    <p class="js-score"></p>
+    <button class="reset-score"
+      onclick="
+        if (score.wins == 0 && score.lose == 0 && score.tie == 0) {
+            alert('Already zero score');
+        } else {
+            score.wins = 0;
+            score.lose = 0;
+            score.tie = 0;
+            localStorage.removeItem('score');
+            localStorage.setItem('score', JSON.stringify(score)); // Update localStorage after resetting
+        }
+          resetScore();  
+        "
+    >
+      Reset Score
+    </button>
+    <button class="AutoPlay" onclick="
+            Automatic();
+    ">Auto Play</button>
+    <button class="stopAutoPlay" 
+    onclick="Automatic();"
+    >Stop</button>
+  </body>
+  <script src="rockPaperAutoPlay.js">
+  </script>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="12-rockpaper.css">
+    <!-- We can add multiple css file through multiple link statements. also we can load multiple script file through multiple script tag below the closing body tag -->
+  </head>
+
+  <body>
+    <h1>Rock Paper Scissors</h1>
+
+    <button
+      class="move-button"
+      onclick="
+    let my_choice='rock';
+    let computer_choice =  computerMove();
+    let result=prediction(my_choice,computer_choice);
+    displayResult(my_choice , computer_choice,result);
+    /*alert(`You choose ${my_choice}, Computer choose ${computer_choice},${result}, \n Wins:${score.wins},Losses:${score.losses},ties:${score.ties}`);*/
+    "
+    >
+      <img src="rock-emoji.png" height="60px" alt="fist image as rock" />
+    </button>
+
+    <button
+      class="move-button"
+      onclick="
+    my_choice='paper';
+    computer_choice=  computerMove();
+        result=prediction(my_choice,computer_choice);
+        displayResult(my_choice , computer_choice,result);
+       /* alert(`You choose ${my_choice}, Computer choose ${computer_choice},${result},\n Wins:${score.wins},Losses:${score.losses},ties:${score.ties}`);*/
+    "
+    >
+      <img src="paper-emoji.png" alt="palm image as paper" height="60px" />
+    </button>
+
+    <button
+      class="move-button"
+      onclick="
+     my_choice='scissor';
+     computer_choice=  computerMove();
+        result=prediction(my_choice,computer_choice);
+        displayResult(my_choice , computer_choice,result);
+       /* alert(`You choose ${my_choice}, Computer choose ${computer_choice},${result} ,\n Wins:${score.wins},Losses:${score.losses},ties:${score.ties}`);*/
+    "
+    >
+      <img
+        src="scissors-emoji.png"
+        height="60px"
+        alt="Win finger as a scissors"
+      />
+    </button>
+    <p class="js-result css-result"></p>
+    <p class="js-decide css-decide"></p>
+    <p class="js-score css-score"></p>
+    <button
+      class="reset-button"
+      onclick="
+    score.losses=0;
+    score.wins=0;
+    score.ties=0;
+    localStorage.removeItem('score');
+    updateScore();
+    "
+    >
+      <!-- we also need to modify reset button because kuch moves khelne k baad jb hum reset button pr click krke refresh krenge then saraa data again as it pehle k stored data, from localStorage will be fetched -->
+      Reset Score
+    </button>
+    <button class="auto-play-button"
+    onclick="
+     autoplay();
+    "
+    >Auto Play</button>
+
+    <script src="12-rock-paper.js">
+    
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="11-todo.css" />
+  </head>
+  <body>
+    <header>
+      <h2 class="textOfP">Hey , Wanna add something for your Day?</h2>
+    </header>
+    <div class="js-todo-list"></div>
+
+    <p class="textOfP">Todo List</p>
+    <div class="todo-input-grid">
+      <input type="text" placeholder="Todo name" class="js-input3" />
+      <input type="date" class="js-input-date" />
+      <button
+        onclick="
+    addL();
+    "
+      >
+        Add
+      </button>
+    </div>
+    <div class="js-todo-list-last todo-grid"></div>
+
+    <!-- A div doesn't have spaces above and below it while paragraph have  this default styling-->
+    <script src="11-to-do-list.js"></script>
+  </body>
+</html>

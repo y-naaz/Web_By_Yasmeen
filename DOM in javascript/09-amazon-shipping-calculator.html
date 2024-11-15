@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = +$10</p>
+    <p>Orders over $40 = Free Shipping.</p>
+    <input type="text" placeholder="cost of order" class="js-input"  onkeydown="
+    // console.log(event.key);               Will give which key is being pressed.
+    handleCost(event);//parameter is passed to make event object of onkeydown(eventListeners) available at handlecost function.
+    "
+    ><button
+    onclick="
+    calculateToatlCost();
+    "
+    >Calculate</button>
+    <p class="js-cost"></p>
+</body>
+<script>
+    //Note: if a string only contain a number and we -*/  => it will be converted into a number. and it is and example of type conversion(coercion) or automatic type coercion . 
+    
+    function handleCost(event){
+        if(event.key === 'Enter'){
+            calculateTotal();
+        }
+    }
+    function calculateToatlCost(){
+        let cost = Number(document.querySelector('.js-input').value);
+        console.log(typeof cost);
+        const textEle = document.querySelector(".js-cost") ;
+    if(cost <40){
+        cost = cost + 10 ;
+    }
+    textEle.innerHTML = `$${cost}`;
+    }
+    
+</script>
+</html>

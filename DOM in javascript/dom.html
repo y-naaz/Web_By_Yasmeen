@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>hello</button>
+    <button class="secb">secondButton</button>
+    <script>
+        document.title="changed title";
+        document.querySelector(".secb").innerHTML='You have been changed';
+        console.log( typeof document.body);
+        console.log(document.querySelector('.secb'));
+        const buttonElement= document.querySelector(".secb");
+        console.log(buttonElement);
+        
+    </script>
+</body>
+</html>

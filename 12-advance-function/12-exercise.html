@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12-Exercise</title>
+</head>
+<body>
+    <button class="start" onclick="
+        check();
+    ">Start</button>
+    <button class="add-to-cart" 
+    onclick="
+    added();    
+    "
+    >Add to Cart</button>
+    <p class="added" style="margin-left:50px; margin-top:3px; color:green; font-weight:bold;"></p>
+    <script>
+        let setIntervalID;
+        function added(){
+            const addToCartElement = document.querySelector('.added');
+            addToCartElement.innerHTML = 'Added';
+            clearTimeout(setIntervalID);
+            
+                
+                setIntervalID = setTimeout(function (){
+                    addToCartElement.innerHTML = "" ;
+                },2000);       
+        }
+        function check(){
+            const startElement = document.querySelector('.start');
+            startElement.innerHTML = 'Loading...';
+            setTimeout(
+            function (){
+                if(startElement.innerHTML==='Loading...'){
+                    startElement.innerHTML = 'Finished';
+                }
+                else{
+                    startElement.innerHTML = 'Start';
+                }
+            },1000);
+        }
+        
+    </script>
+</body>
+</html>

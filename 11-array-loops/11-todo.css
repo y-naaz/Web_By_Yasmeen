@@ -1,0 +1,55 @@
+/* Lets style our To-List Project */
+body{
+    background-color: #dfd0b8;
+    /* text-align: center; */
+    font-family: cursive;
+    
+}
+.todo-grid , .todo-input-grid{
+    display: grid;
+    grid-template-columns: 200px 150px 100px;
+    column-gap: 7px;
+    row-gap: 15px;
+    align-items: center;
+}
+.textOfP{
+    color: #153448;
+    font-size: larger;
+    font-weight: bolder;
+    font-family: cursive;
+}
+input{
+    background-color: rgba(250, 249, 249, 0.5);
+    padding: 6px 12px;
+}
+button{
+    align-items: stretch;
+    margin: 3px;
+    cursor: pointer;
+    border: none;
+    padding: 8px  35px;
+    border-radius: 16px;
+    background-color: #376481;
+    color: white;
+}
+button:hover{
+    background-color: #ebaa42;
+    color: black;
+    font-weight: bold;
+}
+.js-input-date{
+    cursor: pointer;
+}
+.todo-delete{
+    background-color: rgb(196, 13, 13);
+    color: white;
+}
+.added-d{
+    margin-top: 8px;
+    font-weight: bolder;
+    font-size: larger;
+}
+.todo-input-grid{
+    align-items: stretch;
+}
+

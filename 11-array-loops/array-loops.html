@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const myArray = [10, 20, 30];//array is a value
+      console.log(myArray);
+      console.log(myArray[0]);
+      myArray[1] = 40;
+      console.log(myArray[1]);
+      const myArray2 = [1, "hello", true, { name: "socks" }, [1, 2]];
+
+      //Aray can have integer value , string , boolean , object and also an array
+
+      console.log(typeof myArray2[3]);
+      console.log(typeof [1, 2]); //tells array is an object
+      Array.isArray([1,2]);//this will return true if array and false if array not.
+      console.log(myArray.length);//give length of array
+      myArray.push(100);//add 100 at last of myArray
+      console.log(myArray);
+      myArray.splice(0,2);//1.Index we want to remove
+      // 2.Number of values to remove starting  from that index
+      console.log(myArray);
+    </script>
+  </body>
+</html>
