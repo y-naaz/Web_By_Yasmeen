@@ -88,11 +88,18 @@
         todoist.forEach(function (todoObject,i) {
           const html = `
               <div>${todoObject.name}</div>    <div>${todoObject.dueDate}</div>
-              <button class="css-dlt-btn" onclick="deleteTodo(${i})">Delete</button>
+              <button class="css-dlt-btn  js-dlt-btn">Delete</button>
           `;
           todoHTML += html;
         });
         document.querySelector(".todo-list-container").innerHTML = todoHTML;
+        document.querySelectorAll('.js-dlt-btn').forEach((dltBtn,i)=>{
+            dltBtn.addEventListener('click', ()=>{
+                    deleteTodo(i);
+                    localStorage.setItem('todoist',JSON.stringify(todoist));
+            });
+        });
+        
       }
 
       function deleteTodo(index) {

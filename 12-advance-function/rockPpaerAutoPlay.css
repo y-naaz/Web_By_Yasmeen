@@ -43,3 +43,23 @@ body {
   .stopAutoPlay{
     padding: 12px 30px;
   }
+  .yes , .no{
+    border: none;
+    border-radius: 3px;
+    background-color: white;
+    color: black;
+    padding: 10px 12px;
+    cursor: pointer;
+  }
+  .yes:hover{
+    background-color: rgb(233, 163, 163);
+  }
+  .no:hover{
+    background-color: rgb(106, 218, 106);
+  }
+  .yes:active{
+    background-color: rgb(180, 33, 33);
+  }
+  .no:active{
+    background-color: rgb(27, 128, 27);
+  }
