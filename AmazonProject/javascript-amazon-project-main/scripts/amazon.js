@@ -1,4 +1,5 @@
-import {cart} from './data/cart.js';
+import {cart} from '../data/cart.js';
+import {products} from '../data/products.js';
 //Now I have deleted the product array and all the product's javascript code is contained in product.js file
 //loop through the list of arrays
 //to add some HTML to the list of products
