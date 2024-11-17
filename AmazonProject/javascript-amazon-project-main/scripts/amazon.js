@@ -1,4 +1,4 @@
-import { cart } from "../data/cart.js";
+import { cart , addToCart } from "../data/cart.js";
 import { products } from "../data/products.js";
 //Now I have deleted the product array and all the product's javascript code is contained in product.js file
 //loop through the list of arrays
@@ -59,28 +59,17 @@ products.forEach((product) => {
   //now we will combine all the HTML and will put it on the web page
 });
 document.querySelector(".js-product-grid").innerHTML = productHTML;
+function updateCartQuantity(){
+  let total_quantity = 0;
+    cart.forEach((CartItems) => {
+      total_quantity += CartItems.quantity;
+    });
+    document.querySelector(".js-cart-quantity").innerHTML = total_quantity;
+}
 document.querySelectorAll(".js-add-to-cart").forEach((button) => {
   button.addEventListener("click", () => {
     const productId = button.dataset.productId;
-    let matchingItem;
-    cart.forEach((items) => {
-      if (productId === items.productId) {
-        //as the object_name is items (it is referencing to the object) hence matchingItem will also refer to the same item
-        matchingItem = items;
-      }
-    });
-    if (matchingItem) {
-      matchingItem.quantity += 1;
-    } else {
-      cart.push({
-        productId: productId,
-        quantity: 1,
-      });
-    }
-    let total_quantity = 0;
-    cart.forEach((item) => {
-      total_quantity += item.quantity;
-    });
-    document.querySelector(".js-cart-quantity").innerHTML = total_quantity;
+    addToCart(productId);
+    updateCartQuantity();
   });
 });
