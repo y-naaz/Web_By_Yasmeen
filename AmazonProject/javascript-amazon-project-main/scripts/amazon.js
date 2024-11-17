@@ -1,11 +1,11 @@
-import {cart} from '../data/cart.js';
-import {products} from '../data/products.js';
+import { cart } from "../data/cart.js";
+import { products } from "../data/products.js";
 //Now I have deleted the product array and all the product's javascript code is contained in product.js file
 //loop through the list of arrays
 //to add some HTML to the list of products
-let productHTML='';
-products.forEach((product)=>{
-    productHTML+= `
+let productHTML = "";
+products.forEach((product) => {
+  productHTML += `
     <div class="product-container">
           <div class="product-image-container">
             <img class="product-image"
@@ -18,14 +18,14 @@ products.forEach((product)=>{
 
           <div class="product-rating-container">
             <img class="product-rating-stars"
-              src="images/ratings/rating-${product.rating.stars*10}.png">
+              src="images/ratings/rating-${product.rating.stars * 10}.png">
             <div class="product-rating-count link-primary">
               ${product.rating.count}
             </div>
           </div>
 
           <div class="product-price">
-            $${(product.priceCents/100).toFixed(2)}
+            $${(product.priceCents / 100).toFixed(2)}
           </div>
 
           <div class="product-quantity-container">
@@ -56,35 +56,31 @@ products.forEach((product)=>{
           </button>
         </div>
     `;
-    //now we will combine all the HTML and will put it on the web page
+  //now we will combine all the HTML and will put it on the web page
 });
-document.querySelector('.js-product-grid').innerHTML=productHTML;
-document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
-        button.addEventListener('click',()=>{
-          const productId = button.dataset.productId;
-          let matchingItem ;
-          cart.forEach((items)=>{
-            if(productId===items.productId){
-              //as the object_name is items (it is referencing to the object) hence matchingItem will also refer to the same item 
-              matchingItem = items;
-            }
-          });
-          if(matchingItem){
-            matchingItem.quantity+=1;
-          }
-          else{
-              cart.push({
-                productId:productId,
-                quantity :1
-              });
-          }
-          let total_quantity=0;
-          cart.forEach((item)=>{
-            total_quantity+=item.quantity;
-          });
-          document.querySelector('.js-cart-quantity').innerHTML =total_quantity;
-        });
+document.querySelector(".js-product-grid").innerHTML = productHTML;
+document.querySelectorAll(".js-add-to-cart").forEach((button) => {
+  button.addEventListener("click", () => {
+    const productId = button.dataset.productId;
+    let matchingItem;
+    cart.forEach((items) => {
+      if (productId === items.productId) {
+        //as the object_name is items (it is referencing to the object) hence matchingItem will also refer to the same item
+        matchingItem = items;
+      }
+    });
+    if (matchingItem) {
+      matchingItem.quantity += 1;
+    } else {
+      cart.push({
+        productId: productId,
+        quantity: 1,
+      });
+    }
+    let total_quantity = 0;
+    cart.forEach((item) => {
+      total_quantity += item.quantity;
+    });
+    document.querySelector(".js-cart-quantity").innerHTML = total_quantity;
+  });
 });
-
-
-
