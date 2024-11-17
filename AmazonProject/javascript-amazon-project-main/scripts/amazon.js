@@ -23,7 +23,7 @@ products.forEach((product)=>{
           </div>
 
           <div class="product-price">
-            $${(product.price_cents/100).toFixed(2)}
+            $${(product.priceCents/100).toFixed(2)}
           </div>
 
           <div class="product-quantity-container">
@@ -48,7 +48,8 @@ products.forEach((product)=>{
             Added
           </div>
 
-          <button class="add-to-cart-button button-primary">
+          <button class="add-to-cart-button button-primary js-add-to-cart"
+          data-product-id="${product.id}">
             Add to Cart
           </button>
         </div>
@@ -56,4 +57,28 @@ products.forEach((product)=>{
     //now we will combine all the HTML and will put it on the web page
 });
 document.querySelector('.js-product-grid').innerHTML=productHTML;
-console.log(productHTML);
+
+
+document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
+        button.addEventListener('click',()=>{
+          const productId = button.dataset.productId;
+          let matchingItem ;
+          cart.forEach((items)=>{
+            if(productId===items.productId){
+              //as the object_name is items (it is referencing to the object) hence matchingItem will also refer to the same item 
+              matchingItem = items;
+            }
+          });
+          if(matchingItem){
+            matchingItem.quantity+=1;
+          }
+          else{
+              cart.push({
+                productId:productId,
+                quantity :1
+              });
+          }
+          console.log(cart);
+        });
+});
+
