@@ -1,5 +1,6 @@
-import { cart , addToCart } from "../data/cart.js";
+import { cart, addToCart } from "../data/cart.js";
 import { products } from "../data/products.js";
+import { formatCurrency } from "./utils/money.js";
 //Now I have deleted the product array and all the product's javascript code is contained in product.js file
 //loop through the list of arrays
 //to add some HTML to the list of products
@@ -25,7 +26,7 @@ products.forEach((product) => {
           </div>
 
           <div class="product-price">
-            $${(product.priceCents / 100).toFixed(2)}
+            $${formatCurrency(product.priceCents)}
           </div>
 
           <div class="product-quantity-container">
@@ -59,12 +60,12 @@ products.forEach((product) => {
   //now we will combine all the HTML and will put it on the web page
 });
 document.querySelector(".js-product-grid").innerHTML = productHTML;
-function updateCartQuantity(){
+function updateCartQuantity() {
   let total_quantity = 0;
-    cart.forEach((CartItems) => {
-      total_quantity += CartItems.quantity;
-    });
-    document.querySelector(".js-cart-quantity").innerHTML = total_quantity;
+  cart.forEach((CartItems) => {
+    total_quantity += CartItems.quantity;
+  });
+  document.querySelector(".js-cart-quantity").innerHTML = total_quantity;
 }
 document.querySelectorAll(".js-add-to-cart").forEach((button) => {
   button.addEventListener("click", () => {
@@ -73,4 +74,3 @@ document.querySelectorAll(".js-add-to-cart").forEach((button) => {
     updateCartQuantity();
   });
 });
-
